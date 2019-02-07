@@ -21,7 +21,7 @@ parser.add_argument("--in-quote",
 					default = None)
 args = parser.parse_args()
 
-with open(args.input_file) as in_csv:
+with open(args.input_file, newline = '') as in_csv:
 	# If delimiter or quote not specified determine it using Sniffer:
 	if args.in_delimiter == None or args.in_quote == None:
 		dialect = csv.Sniffer().sniff(in_csv.read(1024))
