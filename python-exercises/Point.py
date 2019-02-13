@@ -18,14 +18,16 @@ class Point:
 	def __ne__(self, other):
 		return self.x != other.x or self.y != other.y or self.z != other.z	
 	
-	# Attempt at bonus 1 - passed tests:
+	# Attempt at bonus 1 - passed
 	def __add__(self, other):
 		return Point(self.x+other.x, self.y+other.y, self.z+other.z)
 		
 	def __sub__(self, other):
 		return Point(self.x-other.x, self.y-other.y, self.z-other.z)
-	# Attempt at bonus 2 -
+	
+	# Attempt at bonus 2 - passed
 	def __mul__(self, other):
 		return Point(self.x * other, self.y * other, self.z * other)
  
-
+	def __rmul__(self, other):
+		return Point(self.x * other, self.y * other, self.z * other)
