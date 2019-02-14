@@ -31,3 +31,10 @@ class Point:
  
 	def __rmul__(self, other):
 		return Point(self.x * other, self.y * other, self.z * other)
+		
+	# Attempt at bonus 3 - passed
+	
+	def __iter__(self):
+		return iter([self.x, self.y, self.z])
+	#def __next__(self):
+	#	return self
