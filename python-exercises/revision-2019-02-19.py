@@ -60,4 +60,34 @@ if __name__ == '__main__':
 
 			
 # Attempt at anagram:
-			
+
+def is_anagram(str1, str2):
+	import unicodedata as ud
+	# Normalize string - lower case, remove accents and check if in alphabet 
+	def norm_str(string):
+		result = ud.normalize('NFKD',string.lower())
+		result = sorted([letter for letter in result if letter.isalpha()]) 
+		return result
+	# Apply normalization to strings 1 and 2 and compare
+	str1 = norm_str(str1)
+	str2 = norm_str(str2)
+	return str1 == str2
+
+# Attempt at multimax:
+
+def multimax(iter, key = lambda x: x):
+	max_list = []
+	for el in iter:
+		if max_list:
+			if key(el) > key(max_list[0]):
+				max_list = [el]
+			elif key(el) == key(max_list[0]):
+				max_list.append(el)
+		else:
+			max_list.append(el)
+	return max_list		
+
+
+
+
+
