@@ -59,8 +59,7 @@ if __name__ == '__main__':
 			write_data.writerows(read_data)
 
 			
-# Attempt at anagram:
-
+# Attempt at anagram - Passed Tests
 def is_anagram(str1, str2):
 	import unicodedata as ud
 	# Normalize string - lower case, remove accents and check if in alphabet 
@@ -73,8 +72,7 @@ def is_anagram(str1, str2):
 	str2 = norm_str(str2)
 	return str1 == str2
 
-# Attempt at multimax:
-
+# Attempt at multimax - Passed tests
 def multimax(iter, key = lambda x: x):
 	max_list = []
 	for el in iter:
@@ -87,6 +85,40 @@ def multimax(iter, key = lambda x: x):
 			max_list.append(el)
 	return max_list		
 
+# Attempt at Point - passed tests
+
+class Point:
+	
+	def __init__(self, x, y, z):
+		self.x, self.y, self.z = x, y, z
+	
+	def __repr__(self):
+		return f'Point({self.x}, {self.y}, {self.z})'
+		
+	def __eq__(self, other):
+		sx = self.x 
+		sy = self.y
+		sz = self.z
+		return (sx, sy, sz) == (other.x, other.y, other.z)
+		
+	def __add__(self, other):
+		nx, ny, nz = self.x + other.x, self.y + other.y, self.z + other.z
+		return Point(nx, ny, nz)
+	
+	def __sub__(self, other):
+		nx, ny, nz = self.x - other.x, self.y - other.y, self.z - other.z
+		return Point(nx, ny, nz)
+		
+	def __mul__(self, num):
+		nx, ny, nz = self.x * num, self.y * num, self.z * num
+		return Point(nx, ny, nz)
+		
+	def __rmul__(self, num):
+		return self.__mul__(num)
+		
+	def __iter__(self):
+		return iter((self.x, self.y, self.z))
+		
 
 
 
