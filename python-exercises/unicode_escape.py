@@ -1,16 +1,15 @@
 # Attempt at unicode_escape Python Morsel after looking at solutions
 
 
-if __name__ == '__main__':
 
-	import argparse
 
-	parser = argparse.ArgumentParser()
-	parser.add_argument("input_file", type=argparse.FileType('rt'))
+import argparse
 
-	args = parser.parse_args()
+parser = argparse.ArgumentParser()
+parser.add_argument("input_file")
+args = parser.parse_args()
 
-	in_file = args.input_file
+in_file = args.input_file
 
 with open(in_file, mode='rt', encoding='utf-8') as f:
 	data = f.read()
